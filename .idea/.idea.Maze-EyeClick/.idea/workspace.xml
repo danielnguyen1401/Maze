@@ -1,0 +1,491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="3e80accd-0bef-437f-b2dc-25a50ad22383" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="MazeSpawner.cs" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/MazeSpawner.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2016">
+              <caret line="96" column="25" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+              <folding>
+                <marker date="1566577362551" expanded="true" signature="20:106" ph="/*Game object, that creates maze and instantiates it in scene ... */" />
+                <marker date="1566577362551" expanded="true" signature="147:4468" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="189:314" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="844:4466" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="875:933" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="961:1759" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="1844:3853" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="1915:3843" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="2363:2637" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="2674:2948" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="2984:3258" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="3294:3569" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="3625:3829" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="3882:4460" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="3945:4450" ph="{...}" />
+                <marker date="1566577362551" expanded="true" signature="4028:4436" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecursiveMazeGenerator.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/RecursiveMazeGenerator.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
+              <folding>
+                <marker date="1566577704708" expanded="true" signature="20:111" ph="/*Pure recursive maze generation. ... */" />
+                <marker date="1566577704708" expanded="true" signature="168:3396" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="249:261" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="302:356" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="425:3394" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="699:837" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="925:1012" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="1125:1263" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="1351:1438" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="1559:1696" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="1785:1871" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="1990:2127" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="2216:2302" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="2384:2468" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="2566:3345" ph="{...}" />
+                <marker date="1566577704708" expanded="true" signature="2658:3331" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TreeMazeGenerator.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/TreeMazeGenerator.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-294">
+              <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+              <folding>
+                <marker date="1566577791396" expanded="true" signature="20:161" ph="/*Basic class for Tree generation logic. ... */" />
+                <marker date="1566577791396" expanded="true" signature="222:5682" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="229:299" ph="/*Class representation of target cell ... */" />
+                <marker date="1566577791396" expanded="true" signature="330:706" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="487:588" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="631:700" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="898:910" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="951:5380" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="1208:5374" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="1528:1666" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="1766:2021" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="1897:2007" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="2204:2342" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="2442:2691" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="2567:2677" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="2886:3023" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="3124:3388" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="3263:3374" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="3581:3718" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="3819:4077" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="3952:4063" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="4167:4259" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="4365:5276" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="4457:5262" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="5293:5364" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="5432:5544" ph="{...}" />
+                <marker date="1566577791396" expanded="true" signature="5550:5628" ph="/*Abstract method for cell selection strategy ... */" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BasicMazeGenerator.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/BasicMazeGenerator.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="226">
+              <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+              <folding>
+                <marker date="1566577438176" expanded="true" signature="20:84" ph="/*Basic class for maze generation logic ... */" />
+                <marker date="1566577438176" expanded="true" signature="125:1563" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="362:864" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="476:523" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="555:605" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="696:858" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="767:848" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="960:1248" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="1047:1106" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="1119:1242" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="1316:1561" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="1403:1462" ph="{...}" />
+                <marker date="1566577438176" expanded="true" signature="1475:1555" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DivisionMazeGenerator.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/DivisionMazeGenerator.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-210">
+              <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+              <folding>
+                <marker date="1566578065357" expanded="true" signature="20:179" ph="/*Maze generation by dividing area in two, adding spaces in walls and repeating recursively. ... */" />
+                <marker date="1566578065357" expanded="true" signature="235:4429" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="311:323" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="329:406" ph="/*Class representing maze area to be divided ... */" />
+                <marker date="1566578065357" expanded="true" signature="433:673" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="584:667" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="834:2487" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="889:1022" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="1084:1220" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="1367:2481" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="1602:2229" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="1652:1737" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="1778:1865" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="1907:2215" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="1976:2073" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="2098:2197" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="2276:2349" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="2396:2471" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="2493:2560" ph="/*Divides selected area vertically ... */" />
+                <marker date="1566578065357" expanded="true" signature="2606:3429" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="2733:2866" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="3015:3096" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="3286:3421" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="3435:3505" ph="/*Divides selected area horiszontally ... */" />
+                <marker date="1566578065357" expanded="true" signature="3553:4427" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="3680:3813" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="3960:4041" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="4095:4231" ph="{...}" />
+                <marker date="1566578065357" expanded="true" signature="4286:4419" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MazeCell.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/MazeCell.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+              <folding>
+                <marker date="1566577454194" expanded="true" signature="21:78" ph="{...}" />
+                <marker date="1566577454194" expanded="true" signature="81:150" ph="/*Class for representing concrete maze cell. ... */" />
+                <marker date="1566577454194" expanded="true" signature="172:381" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/MazeSpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MazeGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/BasicMazeGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/MazeCell.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/TreeMazeGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/RecursiveMazeGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/DivisionMazeGenerator.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/Scripts/MazeGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
+        <option value="$PROJECT_DIR$/Assets/MazeGenerator/Scripts/MazeSpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/MazeGenerator/Scripts/BasicMazeGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/MazeGenerator/Scripts/MazeCell.cs" />
+        <option value="$PROJECT_DIR$/Assets/MazeGenerator/Scripts/RecursiveMazeGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/MazeGenerator/Scripts/TreeMazeGenerator.cs" />
+        <option value="$PROJECT_DIR$/Assets/MazeGenerator/Scripts/DivisionMazeGenerator.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="width" value="960" />
+    <option name="height" value="1040" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="UnityExplorer" proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="SolutionExplorer">
+        <option name="show-file-system" value="false" />
+        <option name="show-all-items" value="false" />
+      </pane>
+      <pane id="Scratches" />
+      <pane id="UnityExplorer">
+        <subPane>
+          <expand>
+            <path>
+              <item name="" type="ad4990d8:FileSystemViewPaneBase$ProjectViewPaneTreeStructure$createRoot$1" />
+              <item name="Maze-EyeClick" type="483dac07:UnityExplorerNode$Root" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+        <option name="show-hidden-items" value="false" />
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Rider.ProjectViewActivator.IsNotFirstRun" value="true" />
+    <property name="SearchEverywhereHistoryKey" value="gamema&#9;null&#9;null" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+    </configuration>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Errors In Solution" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" weight="0.3290938" />
+      <window_info anchor="bottom" id="Unit Tests" />
+      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24963397" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Unity" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="NuGet" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MazeGenerator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <marker date="1566573776013" expanded="true" signature="62:236" ph="{...}" />
+            <marker date="1566573776013" expanded="true" signature="134:155" ph="{...}" />
+            <marker date="1566573776013" expanded="true" signature="213:234" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <marker date="1566574024672" expanded="true" signature="60:234" ph="{...}" />
+            <marker date="1566574024672" expanded="true" signature="132:153" ph="{...}" />
+            <marker date="1566574024672" expanded="true" signature="211:232" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/MazeCell.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding>
+            <marker date="1566577454194" expanded="true" signature="21:78" ph="{...}" />
+            <marker date="1566577454194" expanded="true" signature="81:150" ph="/*Class for representing concrete maze cell. ... */" />
+            <marker date="1566577454194" expanded="true" signature="172:381" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/TreeMazeGenerator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-294">
+          <caret line="88" column="47" selection-start-line="88" selection-start-column="47" selection-end-line="88" selection-end-column="47" />
+          <folding>
+            <marker date="1566577791396" expanded="true" signature="20:161" ph="/*Basic class for Tree generation logic. ... */" />
+            <marker date="1566577791396" expanded="true" signature="222:5682" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="229:299" ph="/*Class representation of target cell ... */" />
+            <marker date="1566577791396" expanded="true" signature="330:706" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="487:588" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="631:700" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="898:910" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="951:5380" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="1208:5374" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="1528:1666" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="1766:2021" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="1897:2007" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="2204:2342" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="2442:2691" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="2567:2677" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="2886:3023" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="3124:3388" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="3263:3374" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="3581:3718" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="3819:4077" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="3952:4063" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="4167:4259" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="4365:5276" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="4457:5262" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="5293:5364" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="5432:5544" ph="{...}" />
+            <marker date="1566577791396" expanded="true" signature="5550:5628" ph="/*Abstract method for cell selection strategy ... */" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/RecursiveMazeGenerator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="59" selection-start-line="8" selection-start-column="59" selection-end-line="8" selection-end-column="59" />
+          <folding>
+            <marker date="1566577704708" expanded="true" signature="20:111" ph="/*Pure recursive maze generation. ... */" />
+            <marker date="1566577704708" expanded="true" signature="168:3396" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="249:261" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="302:356" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="425:3394" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="699:837" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="925:1012" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="1125:1263" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="1351:1438" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="1559:1696" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="1785:1871" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="1990:2127" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="2216:2302" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="2384:2468" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="2566:3345" ph="{...}" />
+            <marker date="1566577704708" expanded="true" signature="2658:3331" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/BasicMazeGenerator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
+          <folding>
+            <marker date="1566577438176" expanded="true" signature="20:84" ph="/*Basic class for maze generation logic ... */" />
+            <marker date="1566577438176" expanded="true" signature="125:1563" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="362:864" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="476:523" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="555:605" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="696:858" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="767:848" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="960:1248" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="1047:1106" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="1119:1242" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="1316:1561" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="1403:1462" ph="{...}" />
+            <marker date="1566577438176" expanded="true" signature="1475:1555" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/DivisionMazeGenerator.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-210">
+          <caret line="24" column="20" selection-start-line="24" selection-start-column="20" selection-end-line="24" selection-end-column="20" />
+          <folding>
+            <marker date="1566578065357" expanded="true" signature="20:179" ph="/*Maze generation by dividing area in two, adding spaces in walls and repeating recursively. ... */" />
+            <marker date="1566578065357" expanded="true" signature="235:4429" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="311:323" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="329:406" ph="/*Class representing maze area to be divided ... */" />
+            <marker date="1566578065357" expanded="true" signature="433:673" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="584:667" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="834:2487" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="889:1022" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="1084:1220" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="1367:2481" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="1602:2229" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="1652:1737" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="1778:1865" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="1907:2215" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="1976:2073" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="2098:2197" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="2276:2349" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="2396:2471" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="2493:2560" ph="/*Divides selected area vertically ... */" />
+            <marker date="1566578065357" expanded="true" signature="2606:3429" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="2733:2866" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="3015:3096" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="3286:3421" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="3435:3505" ph="/*Divides selected area horiszontally ... */" />
+            <marker date="1566578065357" expanded="true" signature="3553:4427" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="3680:3813" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="3960:4041" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="4095:4231" ph="{...}" />
+            <marker date="1566578065357" expanded="true" signature="4286:4419" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/MazeGenerator/Scripts/MazeSpawner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2016">
+          <caret line="96" column="25" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+          <folding>
+            <marker date="1566577362551" expanded="true" signature="20:106" ph="/*Game object, that creates maze and instantiates it in scene ... */" />
+            <marker date="1566577362551" expanded="true" signature="147:4468" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="189:314" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="844:4466" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="875:933" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="961:1759" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="1844:3853" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="1915:3843" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="2363:2637" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="2674:2948" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="2984:3258" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="3294:3569" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="3625:3829" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="3882:4460" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="3945:4450" ph="{...}" />
+            <marker date="1566577362551" expanded="true" signature="4028:4436" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
