@@ -61,24 +61,24 @@ public class MazeController : MonoBehaviour
         MazeCell currentCell = cells[currentIndex];
         Direction direction = MazeDirections.RandomValue;
         IntVec coordinates = currentCell.coordinates + direction.ToIntVector2();
-        if (ContainsCoordinates(coordinates) && GetCell(coordinates) == null)
+        if (ContainsCoordinates(coordinates))
         {
-            cells.Add(CreateCell(coordinates));
-//            MazeCell neighbor = GetCell(coordinates);
-//            if (neighbor == null)
-//            {
-//                CreatePassage(currentCell, neighbor, direction);
-//                cells.Add(neighbor);
-//            }
-//            else
-//            {
-//                CreateWall(currentCell, neighbor, direction);
-//                cells.RemoveAt(currentIndex);
-//            }
+            MazeCell neighbor = GetCell(coordinates);
+            if (neighbor == null)
+            {
+                neighbor = CreateCell(coordinates);
+                CreatePassage(currentCell, neighbor, direction);
+                cells.Add(neighbor);
+            }
+            else
+            {
+                CreateWall(currentCell, neighbor, direction);
+                cells.RemoveAt(currentIndex);
+            }
         }
         else
         {
-//            CreateWall(currentCell, null, direction);
+            CreateWall(currentCell, null, direction);
             cells.RemoveAt(currentIndex);
         }
     }
@@ -88,17 +88,17 @@ public class MazeController : MonoBehaviour
         var passage = Instantiate(passagePref);
         passage.Initialize(cell, otherCell, direction);
         passage = Instantiate(passagePref);
-        passage.Initialize(cell, otherCell, direction.GetOpposite());
+        passage.Initialize(otherCell, cell, direction.GetOpposite());
     }
 
-    private void CreateWall(MazeCell cell, MazeCell neighbor, Direction direction)
+    private void CreateWall(MazeCell cell, MazeCell otherCell, Direction direction)
     {
         var wall = Instantiate(wallPref);
-        wall.Initialize(cell, neighbor, direction);
-        if (neighbor != null)
+        wall.Initialize(cell, otherCell, direction);
+        if (otherCell != null)
         {
             wall = Instantiate(wallPref);
-            wall.Initialize(cell, neighbor, direction.GetOpposite());
+            wall.Initialize(otherCell, cell, direction.GetOpposite());
         }
     }
 

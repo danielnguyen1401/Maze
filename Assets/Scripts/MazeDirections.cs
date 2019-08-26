@@ -29,6 +29,14 @@ public static class MazeDirections
         Direction.Dong
     };
 
+    private static readonly Quaternion[] Rotations =
+    {
+        Quaternion.identity,
+        Quaternion.Euler(0f, 90f, 0f),
+        Quaternion.Euler(0f, 180f, 0f),
+        Quaternion.Euler(0f, 270f, 0f)
+    };
+
     public static IntVec ToIntVector2(this Direction direction)
     {
         return Vectors[(int) direction];
@@ -37,5 +45,10 @@ public static class MazeDirections
     public static Direction GetOpposite(this Direction direction)
     {
         return Opposites[(int) direction];
+    }
+
+    public static Quaternion ToRotation(this Direction direction)
+    {
+        return Rotations[(int) direction];
     }
 }

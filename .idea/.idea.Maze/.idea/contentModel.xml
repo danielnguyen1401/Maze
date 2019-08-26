@@ -10,6 +10,7 @@
           <e p="Edge.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="IntVec.cs" t="Include" />
+          <e p="IntVector2.cs" t="Include" />
           <e p="MazeCell.cs" t="Include" />
           <e p="MazeController.cs" t="Include" />
           <e p="MazeDirections.cs" t="Include" />

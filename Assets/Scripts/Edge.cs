@@ -13,5 +13,6 @@ public class Edge : MonoBehaviour
         cell.SetEdge(direction, this);
         transform.parent = cell.transform;
         transform.localPosition = Vector3.zero;
+        transform.localRotation = direction.ToRotation();
     }
 }
