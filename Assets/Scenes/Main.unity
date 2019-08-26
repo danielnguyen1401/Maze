@@ -325,6 +325,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazeController: {fileID: 7783702918023930256, guid: 854d4b932305773409b23e2d79730603,
     type: 3}
+  mazeSize:
+    x: 9
+    z: 8
+  playerStartPoint:
+    x: 0
+    z: 0
+  enemyStartPoint:
+    x: 8
+    z: 0
+  endPoint:
+    x: 4
+    z: 7
 --- !u!4 &1860677632
 Transform:
   m_ObjectHideFlags: 0

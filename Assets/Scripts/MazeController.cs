@@ -15,14 +15,23 @@ public class MazeController : MonoBehaviour
     public MazeCell cellPrefab;
     public MazePassage passagePref;
     public MazeWall wallPref;
+    [SerializeField] private GameObject playerPref;
+    [SerializeField] private GameObject enemyPref;
+    [SerializeField] private GameObject endPref;
     private MazeCell[,] _cells;
-    private readonly WaitForEndOfFrame _wait = new WaitForEndOfFrame();
+    private readonly WaitForEndOfFrame _waitAFrame = new WaitForEndOfFrame();
+    private readonly WaitForSeconds _wait = new WaitForSeconds(2f);
     private Coroutine _mazeCoroutine;
-    public IntVec mazeSize;
+    private IntVec _size;
     private IntVec _coordinates;
+    private readonly Vector3 _offset = new Vector3(0, .5f, 0);
+    private GameObject _playerGo;
+    private GameObject _enemyGo;
+    private GameObject _endObj;
 
-    private void Start()
+    private void Awake()
     {
+        _size = GameManager.Instance.mazeSize;
     }
 
     public void CreateMaze()
@@ -38,14 +47,35 @@ public class MazeController : MonoBehaviour
 
     private IEnumerator GenerateCo()
     {
-        _cells = new MazeCell[mazeSize.x, mazeSize.z];
+        _cells = new MazeCell[_size.x, _size.z];
         List<MazeCell> activeCells = new List<MazeCell>();
         FirstGenerate(activeCells);
         while (activeCells.Count > 0)
         {
-            yield return _wait;
+            yield return _waitAFrame;
             NextGenerate(activeCells);
         }
+
+        yield return _waitAFrame;
+        CreateCharacter();
+    }
+
+    public void ResetCharacter()
+    {
+        var playerP = GameManager.Instance.playerStartPoint;
+        var enemyP = GameManager.Instance.enemyStartPoint;
+        var endP = GameManager.Instance.endPoint;
+        _playerGo.transform.position = _cells[playerP.x, playerP.z].transform.localPosition + _offset;
+        _enemyGo.transform.position = _cells[enemyP.x, enemyP.z].transform.localPosition + _offset;
+        _endObj.transform.position = _cells[endP.x, endP.z].transform.localPosition + new Vector3(0, .2f, 0);
+    }
+
+    private void CreateCharacter()
+    {
+        _playerGo = Instantiate(playerPref);
+        _enemyGo = Instantiate(enemyPref);
+        _endObj = Instantiate(endPref);
+        ResetCharacter();
     }
 
     private MazeCell CreateCell(IntVec coordinates)
@@ -54,7 +84,8 @@ public class MazeController : MonoBehaviour
         _cells[coordinates.x, coordinates.z] = newCell;
         newCell.coordinates = coordinates;
         newCell.name = "cell - " + coordinates.x + "," + coordinates.z;
-        newCell.transform.localPosition = new Vector3(coordinates.x - mazeSize.x * 0.5f + 0.5f, 0f, coordinates.z - mazeSize.z * 0.5f + 0.5f);
+        newCell.transform.localPosition = new Vector3(coordinates.x - _size.x * 0.5f + 0.5f, 0f, coordinates.z - _size.z * 0.5f + 0.5f);
+
         return newCell;
     }
 
@@ -112,15 +143,36 @@ public class MazeController : MonoBehaviour
         wall.Initialize(otherCell, cell, direction.GetOpposite());
     }
 
-    private IntVec CoordinatesBeRandom => new IntVec(Random.Range(0, mazeSize.x), Random.Range(0, mazeSize.z));
+    private IntVec CoordinatesBeRandom => new IntVec(Random.Range(0, _size.x), Random.Range(0, _size.z));
 
     private bool ContainsCoordinate(IntVec coordinate)
     {
-        return coordinate.x >= 0 && coordinate.x < mazeSize.x && coordinate.z >= 0 && coordinate.z < mazeSize.z;
+        return coordinate.x >= 0 && coordinate.x < _size.x && coordinate.z >= 0 && coordinate.z < _size.z;
     }
 
     private MazeCell GetCell(IntVec coordinate)
     {
         return _cells[coordinate.x, coordinate.z];
     }
+
+//    private bool IsPlayerStartPoint(IntVec cellPosition)
+//    {
+//        var pStartPos = GameManager.Instance.playerStartPoint;
+//        var result = cellPosition.x == pStartPos.x && cellPosition.z == pStartPos.z;
+//        return result;
+//    }
+//
+//    private bool IsEnemyStartPoint(IntVec cellPosition)
+//    {
+//        var eStartPos = GameManager.Instance.enemyStartPoint;
+//        var result = cellPosition.x == eStartPos.x && cellPosition.z == eStartPos.z;
+//        return result;
+//    }
+//
+//    private bool IsEndPoint(IntVec cellPosition)
+//    {
+//        var endPos = GameManager.Instance.endPoint;
+//        var result = cellPosition.x == endPos.x && cellPosition.z == endPos.z;
+//        return result;
+//    }
 }
