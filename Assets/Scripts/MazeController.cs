@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.AI;
 using UnityEngine;
+using UnityEngine.AI;
 
 // <summary>
 // Growing Tree algorithm
@@ -20,7 +22,6 @@ public class MazeController : MonoBehaviour
     [SerializeField] private GameObject endPref;
     private MazeCell[,] _cells;
     private readonly WaitForEndOfFrame _waitAFrame = new WaitForEndOfFrame();
-    private readonly WaitForSeconds _wait = new WaitForSeconds(2f);
     private Coroutine _mazeCoroutine;
     private IntVec _size;
     private IntVec _coordinates;
@@ -28,10 +29,12 @@ public class MazeController : MonoBehaviour
     private GameObject _playerGo;
     private GameObject _enemyGo;
     private GameObject _endObj;
+    private int _tileSize;
 
     private void Awake()
     {
         _size = GameManager.Instance.mazeSize;
+        _tileSize = GameManager.Instance.tileSize;
     }
 
     public void CreateMaze()
@@ -58,7 +61,13 @@ public class MazeController : MonoBehaviour
 
         yield return _waitAFrame;
         CreateCharacter();
-        // bake the background here
+        yield return _waitAFrame;
+        BakeNavMesh();
+    }
+
+    private void BakeNavMesh()
+    {
+        GameManager.Instance.BakeNavMesh();
     }
 
     public void ResetCharacter()
@@ -85,8 +94,10 @@ public class MazeController : MonoBehaviour
         _cells[coordinates.x, coordinates.z] = newCell;
         newCell.coordinates = coordinates;
         newCell.name = "cell - " + coordinates.x + "," + coordinates.z;
-        newCell.transform.localPosition = new Vector3(coordinates.x - _size.x * 0.5f + 0.5f, 0f, coordinates.z - _size.z * 0.5f + 0.5f);
-
+        var localPos = new Vector3(coordinates.x - _size.x * 0.5f + 0.5f, 0f, coordinates.z - _size.z * 0.5f + 0.5f);
+        localPos *= _tileSize;
+        newCell.transform.localScale = _tileSize * Vector3.one;
+        newCell.transform.localPosition = localPos;
         return newCell;
     }
 
@@ -106,7 +117,7 @@ public class MazeController : MonoBehaviour
         }
 
         var direction = currentCell.RandomInitDirection;
-        IntVec coordinates = currentCell.coordinates + direction.ToIntVector2();
+        IntVec coordinates = currentCell.coordinates + direction.ConvertIntVec();
         if (ContainsCoordinate(coordinates))
         {
             MazeCell neighbor = GetCell(coordinates);

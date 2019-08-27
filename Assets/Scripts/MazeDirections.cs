@@ -11,7 +11,7 @@ public enum Direction
 public static class MazeDirections
 {
     public const int Count = 4;
-    public static Direction RandomValue => (Direction) Random.Range(0, Count);
+//    public static Direction RandomValue => (Direction) Random.Range(0, Count);
 
     private static readonly IntVec[] Vectors =
     {
@@ -37,7 +37,7 @@ public static class MazeDirections
         Quaternion.Euler(0f, 270f, 0f)
     };
 
-    public static IntVec ToIntVector2(this Direction direction)
+    public static IntVec ConvertIntVec(this Direction direction)
     {
         return Vectors[(int) direction];
     }
@@ -47,7 +47,7 @@ public static class MazeDirections
         return Opposites[(int) direction];
     }
 
-    public static Quaternion ToRotation(this Direction direction)
+    public static Quaternion GetRotate(this Direction direction)
     {
         return Rotations[(int) direction];
     }

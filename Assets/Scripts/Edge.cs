@@ -6,7 +6,7 @@ public class Edge : MonoBehaviour
 
     public Direction direction;
 
-    public void Initialize(MazeCell cell, MazeCell otherCell, Direction direction)
+    public virtual void Initialize(MazeCell cell, MazeCell otherCell, Direction direction)
     {
         this.cell = cell;
         this.otherCell = otherCell;
@@ -14,6 +14,6 @@ public class Edge : MonoBehaviour
         cell.SetEdge(direction, this);
         transform.parent = cell.transform;
         transform.localPosition = Vector3.zero;
-        transform.localRotation = direction.ToRotation();
+        transform.localRotation = direction.GetRotate();
     }
 }
