@@ -58,6 +58,7 @@ public class MazeController : MonoBehaviour
 
         yield return _waitAFrame;
         CreateCharacter();
+        // bake the background here
     }
 
     public void ResetCharacter()
@@ -65,9 +66,9 @@ public class MazeController : MonoBehaviour
         var playerP = GameManager.Instance.playerStartPoint;
         var enemyP = GameManager.Instance.enemyStartPoint;
         var endP = GameManager.Instance.endPoint;
-        _playerGo.transform.position = _cells[playerP.x, playerP.z].transform.localPosition + _offset;
-        _enemyGo.transform.position = _cells[enemyP.x, enemyP.z].transform.localPosition + _offset;
-        _endObj.transform.position = _cells[endP.x, endP.z].transform.localPosition + new Vector3(0, .2f, 0);
+        if (_playerGo != null) _playerGo.transform.position = _cells[playerP.x, playerP.z].transform.localPosition + _offset;
+        if (_enemyGo != null) _enemyGo.transform.position = _cells[enemyP.x, enemyP.z].transform.localPosition + _offset;
+        if (_endObj != null) _endObj.transform.position = _cells[endP.x, endP.z].transform.localPosition + new Vector3(0, .2f, 0);
     }
 
     private void CreateCharacter()
@@ -91,7 +92,7 @@ public class MazeController : MonoBehaviour
 
     private void FirstGenerate(List<MazeCell> cells)
     {
-        cells.Add(CreateCell(CoordinatesBeRandom));
+        cells.Add(CreateCell(RandomCoordinates));
     }
 
     private void NextGenerate(List<MazeCell> cells)
@@ -138,12 +139,17 @@ public class MazeController : MonoBehaviour
     {
         var wall = Instantiate(wallPref);
         wall.Initialize(cell, otherCell, direction);
+        if (cell.coordinates.x == GameManager.Instance.endPoint.x && cell.coordinates.z == GameManager.Instance.endPoint.z)
+        {
+            wall.gameObject.SetActive(false);
+        }
+
         if (otherCell == null) return;
         wall = Instantiate(wallPref);
         wall.Initialize(otherCell, cell, direction.GetOpposite());
     }
 
-    private IntVec CoordinatesBeRandom => new IntVec(Random.Range(0, _size.x), Random.Range(0, _size.z));
+    private IntVec RandomCoordinates => new IntVec(Random.Range(0, _size.x), Random.Range(0, _size.z));
 
     private bool ContainsCoordinate(IntVec coordinate)
     {
