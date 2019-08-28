@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901c8c7b99c28154ab7752ccc857affc, type: 3}
+  m_Name: Levels
+  m_EditorClassIdentifier: 
+  Levels:
+  - name: level1
+    mazeSize:
+      x: 7
+      z: 6
+    playerStartPoint:
+      x: 6
+      z: 0
+    enemyStartPoint:
+      x: 0
+      z: 0
+    endPoint:
+      x: 3
+      z: 5
+  - name: level2
+    mazeSize:
+      x: 9
+      z: 8
+    playerStartPoint:
+      x: 8
+      z: 0
+    enemyStartPoint:
+      x: 0
+      z: 0
+    endPoint:
+      x: 4
+      z: 7
+  - name: level3
+    mazeSize:
+      x: 12
+      z: 11
+    playerStartPoint:
+      x: 11
+      z: 0
+    enemyStartPoint:
+      x: 0
+      z: 0
+    endPoint:
+      x: 5
+      z: 10

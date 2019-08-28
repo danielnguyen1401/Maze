@@ -54,4 +54,3 @@ MonoBehaviour:
   enemyPref: {fileID: 9127653472863863519, guid: 0b19b8efdbabf9f4d8c9ec6f2f05bc05,
     type: 3}
   endPref: {fileID: 727942218433706745, guid: 8634207f23f1ee842a6c289d5bda4f49, type: 3}
-  tileSize: 2

@@ -36,7 +36,8 @@ namespace Enemy
 
         public void CancelDestination()
         {
-            agent.isStopped = true;
+            if (agent.gameObject.activeInHierarchy)
+                agent.isStopped = true;
         }
     }
 }

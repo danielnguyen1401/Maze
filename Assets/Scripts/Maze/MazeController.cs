@@ -19,28 +19,31 @@ namespace Maze
         public MazeCell cellPrefab;
         public MazePassage passagePref;
         public MazeWall wallPref;
+
         [SerializeField] private GameObject playerPref;
         [SerializeField] private GameObject enemyPref;
         [SerializeField] private GameObject endPref;
+
         private MazeCell[,] _cells;
         private readonly WaitForEndOfFrame _waitAFrame = new WaitForEndOfFrame();
         private Coroutine _mazeCoroutine;
         private IntVec _size;
         private IntVec _coordinates;
         private readonly Vector3 _offset = new Vector3(0, .5f, 0);
+
+        private int _tileSize;
         private GameObject _playerGo;
         private GameObject _enemyGo;
         private GameObject _endObj;
-        private int _tileSize;
 
-        private void Awake()
+        private void Start()
         {
-            _size = GameManager.Instance.mazeSize;
-            _tileSize = GameManager.Instance.tileSize;
         }
 
         public void CreateMaze()
         {
+            _size = GameManager.Instance.GetMazeSize;
+            _tileSize = GameManager.Instance.tileSize;
             _mazeCoroutine = StartCoroutine(GenerateCo());
         }
 
@@ -54,6 +57,8 @@ namespace Maze
         {
             _cells = new MazeCell[_size.x, _size.z];
             List<MazeCell> activeCells = new List<MazeCell>();
+
+
             FirstGenerate(activeCells);
             while (activeCells.Count > 0)
             {
@@ -74,24 +79,26 @@ namespace Maze
             GameManager.Instance.BakeNavMesh();
         }
 
-        public void ResetCharacter()
+        private void CreateCharacter()
         {
-            var playerP = GameManager.Instance.playerStartPoint;
-            var enemyP = GameManager.Instance.enemyStartPoint;
-            var endP = GameManager.Instance.endPoint;
+            _playerGo = Instantiate(playerPref, transform, true);
+            CameraController.Instance.player = _playerGo;
+            _enemyGo = Instantiate(enemyPref, transform, true);
+            _endObj = Instantiate(endPref, transform, true);
+            GameManager.Instance.targetPoint = _endObj.transform;
+            SetCharacterPosition();
+        }
+
+        private void SetCharacterPosition()
+        {
+            var playerP = GameManager.Instance.GetPlayerStartPoint;
+            var enemyP = GameManager.Instance.GetEnemyStartPoint;
+            var endP = GameManager.Instance.GetEndPoint;
+
+            Debug.LogWarning("GetPlayerStartPoint : " + playerP.x + ", " + playerP.z);
             if (_playerGo != null) _playerGo.transform.position = _cells[playerP.x, playerP.z].transform.localPosition + _offset;
             if (_enemyGo != null) _enemyGo.transform.position = _cells[enemyP.x, enemyP.z].transform.localPosition + _offset;
             if (_endObj != null) _endObj.transform.position = _cells[endP.x, endP.z].transform.localPosition + new Vector3(0, .2f, 0);
-        }
-
-        private void CreateCharacter()
-        {
-            _playerGo = Instantiate(playerPref);
-            CameraController.Instance.player = _playerGo;
-            _enemyGo = Instantiate(enemyPref);
-            _endObj = Instantiate(endPref);
-            GameManager.Instance.targetPoint = _endObj.transform;
-            ResetCharacter();
         }
 
         private MazeCell CreateCell(IntVec coordinates)
@@ -156,7 +163,7 @@ namespace Maze
         {
             var wall = Instantiate(wallPref);
             wall.Initialize(cell, otherCell, direction);
-            if (cell.coordinates.x == GameManager.Instance.endPoint.x && cell.coordinates.z == GameManager.Instance.endPoint.z)
+            if (cell.coordinates.x == GameManager.Instance.GetEndPoint.x && cell.coordinates.z == GameManager.Instance.GetEndPoint.z)
             {
                 wall.gameObject.SetActive(false);
             }

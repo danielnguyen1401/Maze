@@ -47,6 +47,9 @@
           <e p="Enemy" t="Include">
             <e p="EnemyController.cs" t="Include" />
           </e>
+          <e p="Level" t="Include">
+            <e p="LevelConfig.cs" t="Include" />
+          </e>
           <e p="Manager" t="Include">
             <e p="GameManager.cs" t="Include" />
             <e p="GameUiManager.cs" t="Include" />

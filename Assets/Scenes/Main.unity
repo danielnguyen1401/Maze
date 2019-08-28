@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.7664063, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.35982987, b: 0, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1253,7 +1253,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -450}
-  m_SizeDelta: {x: 258.36, y: 100}
+  m_SizeDelta: {x: 294.27, y: 120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695102440
 MonoBehaviour:
@@ -1335,7 +1335,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
+  m_Color: {r: 0.4481132, g: 1, b: 0.6457516, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1472,7 +1472,7 @@ RectTransform:
   - {fileID: 354532110}
   - {fileID: 1398976254}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1498,6 +1498,10 @@ MonoBehaviour:
   level: {fileID: 562523192}
   inGameGroup: {fileID: 354532111}
   winLoseGroup: {fileID: 1398976257}
+  playerCrown: {fileID: 1132994899}
+  enemyCrown: {fileID: 106372165}
+  playerText: {fileID: 548697957}
+  enemyText: {fileID: 780521652}
 --- !u!1 &780521649
 GameObject:
   m_ObjectHideFlags: 0
@@ -1995,7 +1999,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.48584908, b: 0.48584908, a: 1}
+  m_Color: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2168,7 +2172,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1492093790
 GameObject:
@@ -2274,7 +2278,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 61.81, y: -90, z: 0}
 --- !u!1 &1532454101
 GameObject:
@@ -2494,7 +2498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.74686915, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2503,11 +2507,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 654a683f3361ab2458f64a601a6a3028, type: 3}
-    m_FontSize: 60
+    m_FontSize: 70
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
-    m_MaxSize: 60
+    m_MaxSize: 70
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -2606,7 +2610,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 70.36, y: -90, z: 0}
 --- !u!114 &1793140963
 MonoBehaviour:
@@ -2647,7 +2651,7 @@ GameObject:
   - component: {fileID: 1860677631}
   - component: {fileID: 1860677633}
   m_Layer: 0
-  m_Name: Game Manager
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2667,20 +2671,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazeController: {fileID: 7783702918023930256, guid: 854d4b932305773409b23e2d79730603,
     type: 3}
-  mazeSize:
-    x: 9
-    z: 8
   tileSize: 2
-  playerStartPoint:
-    x: 8
-    z: 0
-  enemyStartPoint:
-    x: 0
-    z: 0
-  endPoint:
-    x: 4
-    z: 7
   navMeshSurface: {fileID: 1472489059}
+  levelConfig: {fileID: 11400000, guid: bf6e4aacc284b8f4dac2c005156f8dcf, type: 2}
   targetPoint: {fileID: 0}
 --- !u!4 &1860677632
 Transform:
@@ -2694,7 +2687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1860677633
 MonoBehaviour:
@@ -2711,7 +2704,7 @@ MonoBehaviour:
   speed: 2
   angularSpeed: 60
   acceleration: 20
-  obstacleAvoidRadius: 0.8
+  obstacleAvoidRadius: 0.4
 --- !u!1 &1881493403
 GameObject:
   m_ObjectHideFlags: 0

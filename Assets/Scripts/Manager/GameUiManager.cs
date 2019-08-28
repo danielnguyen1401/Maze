@@ -15,6 +15,13 @@ namespace Manager
         [SerializeField] private Text level;
         [SerializeField] private CanvasGroup inGameGroup;
         [SerializeField] private CanvasGroup winLoseGroup;
+
+
+        [SerializeField] private Image playerCrown;
+        [SerializeField] private Image enemyCrown;
+        [SerializeField] private Text playerText;
+        [SerializeField] private Text enemyText;
+
         public Action<int> enemyGetScore;
         public Action<int> playerGetScore;
         public Action<int> nextLevel;
@@ -78,16 +85,37 @@ namespace Manager
             winLoseGroup.blocksRaycasts = show;
         }
 
-        public void ShowFinishLevel()
+        public void ShowFinishLevel(bool playerIsWinner)
         {
-            StartCoroutine(ShowFinishLevelCo());
+            StartCoroutine(ShowFinishLevelCo(playerIsWinner));
         }
 
-        private IEnumerator ShowFinishLevelCo()
+        private IEnumerator ShowFinishLevelCo(bool playerIsWinner)
         {
             yield return _wait;
             ShowInGame(false);
             ShowWinLose(true);
+
+            if (playerIsWinner)
+                PlayerIsWinner();
+            else
+                AiIsWinner();
+        }
+
+        private void PlayerIsWinner()
+        {
+            enemyText.text = "AI LOSE";
+            enemyCrown.color = Color.black;
+            playerText.text = "YOU WIN";
+            playerCrown.color = Color.white;
+        }
+
+        private void AiIsWinner()
+        {
+            enemyText.text = "AI WIN";
+            enemyCrown.color = Color.white;
+            playerText.text = "YOU LOSE";
+            playerCrown.color = Color.black;
         }
 
         private void OnDisable()

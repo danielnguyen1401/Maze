@@ -31,20 +31,20 @@ namespace TargetController
         private void HitPlayer()
         {
             GameUiManager.Instance.playerGetScore.Invoke(10);
-            GameUiManager.Instance.ShowFinishLevel();
             gameObject.SetActive(false);
             GameManager.Instance.GameEnded = true;
             EnemyController.Instance.CancelDestination();
+            GameUiManager.Instance.ShowFinishLevel(true);
         }
 
         private void HitEnemy()
         {
             if (Debug.isDebugBuild) Debug.LogWarning("hit enemy");
             GameUiManager.Instance.enemyGetScore.Invoke(10);
-            GameUiManager.Instance.ShowFinishLevel();
             gameObject.SetActive(false);
             GameManager.Instance.GameEnded = true;
             PlayerController.Instance.CancelDestination();
+            GameUiManager.Instance.ShowFinishLevel(false);
         }
     }
 }
