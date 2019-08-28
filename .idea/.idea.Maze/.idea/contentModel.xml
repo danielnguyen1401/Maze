@@ -38,17 +38,42 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Edge.cs" t="Include" />
-          <e p="GameManager.cs" t="Include" />
-          <e p="InputTest.cs" t="Include" />
-          <e p="IntVec.cs" t="Include" />
-          <e p="IntVector2.cs" t="Include" />
-          <e p="MazeCell.cs" t="Include" />
-          <e p="MazeController.cs" t="Include" />
-          <e p="MazeDirections.cs" t="Include" />
-          <e p="MazePassage.cs" t="Include" />
-          <e p="MazeWall.cs" t="Include" />
-          <e p="RotateEndFlag.cs" t="Include" />
+          <e p="Camera" t="Include">
+            <e p="CameraController.cs" t="Include" />
+          </e>
+          <e p="Config" t="Include">
+            <e p="NavAgentConfig.cs" t="Include" />
+          </e>
+          <e p="Enemy" t="Include">
+            <e p="EnemyController.cs" t="Include" />
+          </e>
+          <e p="Manager" t="Include">
+            <e p="GameManager.cs" t="Include" />
+            <e p="GameUiManager.cs" t="Include" />
+          </e>
+          <e p="Maze" t="Include">
+            <e p="Edge.cs" t="Include" />
+            <e p="IntVec.cs" t="Include" />
+            <e p="MazeCell.cs" t="Include" />
+            <e p="MazeController.cs" t="Include" />
+            <e p="MazeDirections.cs" t="Include" />
+            <e p="MazePassage.cs" t="Include" />
+            <e p="MazeWall.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="PlayerController.cs" t="Include" />
+          </e>
+          <e p="Singleton" t="Include">
+            <e p="GlobalData.cs" t="Include" />
+            <e p="SingletonMono.cs" t="Include" />
+          </e>
+          <e p="TargetController" t="Include">
+            <e p="RotateEndFlag.cs" t="Include" />
+            <e p="TriggerEndPoint.cs" t="Include" />
+          </e>
+          <e p="Utils" t="Include">
+            <e p="EnumExtensions.cs" t="Include" />
+          </e>
         </e>
       </e>
       <e p="Library" t="ExcludeRecursive" />
