@@ -7,25 +7,15 @@ namespace TargetController
 {
     public class TriggerEndPoint : MonoBehaviour
     {
-        void Start()
-        {
-        }
-
-        void Update()
-        {
-        }
+        private readonly string _playerTag = "Player";
+        private readonly string _enemyTag = "Enemy";
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
-            {
+            if (other.CompareTag(_playerTag))
                 HitPlayer();
-            }
-
-            if (other.CompareTag("Enemy"))
-            {
+            if (other.CompareTag(_enemyTag))
                 HitEnemy();
-            }
         }
 
         private void HitPlayer()
@@ -39,7 +29,6 @@ namespace TargetController
 
         private void HitEnemy()
         {
-            if (Debug.isDebugBuild) Debug.LogWarning("hit enemy");
             GameUiManager.Instance.enemyGetScore.Invoke(10);
             gameObject.SetActive(false);
             GameManager.Instance.GameEnded = true;

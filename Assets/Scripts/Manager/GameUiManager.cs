@@ -15,8 +15,6 @@ namespace Manager
         [SerializeField] private Text level;
         [SerializeField] private CanvasGroup inGameGroup;
         [SerializeField] private CanvasGroup winLoseGroup;
-
-
         [SerializeField] private Image playerCrown;
         [SerializeField] private Image enemyCrown;
         [SerializeField] private Text playerText;
@@ -24,7 +22,7 @@ namespace Manager
 
         public Action<int> enemyGetScore;
         public Action<int> playerGetScore;
-        public Action<int> nextLevel;
+        public Action nextLevel;
         private int _eScore;
         private int _pScore;
         private int _level;
@@ -34,10 +32,24 @@ namespace Manager
         {
             enemyGetScore += OnEnemyGetScore;
             playerGetScore += OnPlayerGetScore;
+            nextLevel += OnLevelChange;
+        }
+
+        private void OnLevelChange()
+        {
+            SetLevelByText();
+        }
+
+        private void SetLevelByText()
+        {
+            var realLevel = GameManager.Instance.LevelId;
+            realLevel++;
+            level.text = realLevel.ToString();
         }
 
         private void Start()
         {
+            SetLevelByText();
             ShowInGame(false);
             ShowWinLose(false);
             enemyScore.text = _eScore.ToString();
@@ -93,6 +105,7 @@ namespace Manager
         private IEnumerator ShowFinishLevelCo(bool playerIsWinner)
         {
             yield return _wait;
+            nextButton.gameObject.SetActive(true);
             ShowInGame(false);
             ShowWinLose(true);
 

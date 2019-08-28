@@ -17,10 +17,17 @@ namespace Enemy
 
         private void SetupAgent()
         {
-            agent.speed = NavAgentConfig.Instance.speed;
+            agent.speed = 0;
             agent.angularSpeed = NavAgentConfig.Instance.angularSpeed;
             agent.acceleration = NavAgentConfig.Instance.acceleration;
             agent.radius = NavAgentConfig.Instance.obstacleAvoidRadius;
+            agent.enabled = false;
+        }
+
+        public void EnableAgent()
+        {
+            agent.enabled = true;
+            agent.speed = NavAgentConfig.Instance.speed;
         }
 
         private void Update()

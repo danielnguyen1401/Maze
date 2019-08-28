@@ -2539,7 +2539,6 @@ GameObject:
   - component: {fileID: 1793140961}
   - component: {fileID: 1793140960}
   - component: {fileID: 1793140963}
-  - component: {fileID: 1793140964}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2595,7 +2594,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &1793140962
@@ -2627,18 +2626,6 @@ MonoBehaviour:
   cameraModes: 1
   mainCamera: {fileID: 1793140961}
   player: {fileID: 0}
---- !u!114 &1793140964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1793140959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3067f87f0d648c446aa85c44709f481b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1860677630
 GameObject:
   m_ObjectHideFlags: 0
@@ -2648,8 +2635,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1860677632}
-  - component: {fileID: 1860677631}
   - component: {fileID: 1860677633}
+  - component: {fileID: 1860677631}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -2701,9 +2688,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8dc759bcd6a3641b1f67b38d2630f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   angularSpeed: 60
-  acceleration: 20
+  acceleration: 30
   obstacleAvoidRadius: 0.4
 --- !u!1 &1881493403
 GameObject:

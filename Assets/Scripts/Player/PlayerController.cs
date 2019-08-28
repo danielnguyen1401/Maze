@@ -23,10 +23,17 @@ namespace Player
 
         private void SetupNavAgent()
         {
-            agent.speed = NavAgentConfig.Instance.speed * Multiple;
+            agent.speed = 0;
             agent.angularSpeed = NavAgentConfig.Instance.angularSpeed * Multiple;
             agent.acceleration = NavAgentConfig.Instance.acceleration * Multiple;
             agent.radius = NavAgentConfig.Instance.obstacleAvoidRadius * Multiple;
+            agent.enabled = false;
+        }
+
+        public void EnableAgent()
+        {
+            agent.enabled = true;
+            agent.speed = NavAgentConfig.Instance.speed * Multiple;
         }
 
         private void Update()

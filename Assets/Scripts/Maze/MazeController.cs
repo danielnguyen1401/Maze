@@ -58,7 +58,6 @@ namespace Maze
             _cells = new MazeCell[_size.x, _size.z];
             List<MazeCell> activeCells = new List<MazeCell>();
 
-
             FirstGenerate(activeCells);
             while (activeCells.Count > 0)
             {
@@ -67,9 +66,9 @@ namespace Maze
             }
 
             yield return _waitAFrame;
-            CreateCharacter();
-            yield return _waitAFrame;
             BakeNavMesh();
+            yield return _waitAFrame;
+            CreateCharacter();
             GameUiManager.Instance.ShowInGame(true);
             GameUiManager.Instance.ShowStartBtn(true);
         }
@@ -95,10 +94,10 @@ namespace Maze
             var enemyP = GameManager.Instance.GetEnemyStartPoint;
             var endP = GameManager.Instance.GetEndPoint;
 
-            Debug.LogWarning("GetPlayerStartPoint : " + playerP.x + ", " + playerP.z);
-            if (_playerGo != null) _playerGo.transform.position = _cells[playerP.x, playerP.z].transform.localPosition + _offset;
-            if (_enemyGo != null) _enemyGo.transform.position = _cells[enemyP.x, enemyP.z].transform.localPosition + _offset;
-            if (_endObj != null) _endObj.transform.position = _cells[endP.x, endP.z].transform.localPosition + new Vector3(0, .2f, 0);
+//            Debug.LogWarning("GetPlayerStartPoint : " + playerP.x + ", " + playerP.z);
+            _playerGo.transform.position = _cells[playerP.x, playerP.z].transform.localPosition + _offset;
+            _enemyGo.transform.position = _cells[enemyP.x, enemyP.z].transform.localPosition + _offset;
+            _endObj.transform.position = _cells[endP.x, endP.z].transform.localPosition + new Vector3(0, .2f, 0);
         }
 
         private MazeCell CreateCell(IntVec coordinates)
@@ -107,7 +106,8 @@ namespace Maze
             _cells[coordinates.x, coordinates.z] = newCell;
             newCell.coordinates = coordinates;
             newCell.name = "cell - " + coordinates.x + "," + coordinates.z;
-            var localPos = new Vector3(coordinates.x - _size.x * 0.5f + 0.5f, 0f, coordinates.z - _size.z * 0.5f + 0.5f);
+            var localPos = new Vector3(coordinates.x - _size.x * 0.5f + 0.5f, 0f,
+                coordinates.z - _size.z * 0.5f + 0.5f);
             localPos *= _tileSize;
             newCell.transform.localScale = _tileSize * Vector3.one;
             newCell.transform.localPosition = localPos;
@@ -163,7 +163,8 @@ namespace Maze
         {
             var wall = Instantiate(wallPref);
             wall.Initialize(cell, otherCell, direction);
-            if (cell.coordinates.x == GameManager.Instance.GetEndPoint.x && cell.coordinates.z == GameManager.Instance.GetEndPoint.z)
+            if (cell.coordinates.x == GameManager.Instance.GetEndPoint.x &&
+                cell.coordinates.z == GameManager.Instance.GetEndPoint.z)
             {
                 wall.gameObject.SetActive(false);
             }
