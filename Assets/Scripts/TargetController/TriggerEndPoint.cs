@@ -1,4 +1,6 @@
-﻿using Manager;
+﻿using Enemy;
+using Manager;
+using Player;
 using UnityEngine;
 
 namespace TargetController
@@ -29,14 +31,20 @@ namespace TargetController
         private void HitPlayer()
         {
             GameUiManager.Instance.playerGetScore.Invoke(10);
+            GameUiManager.Instance.ShowFinishLevel();
             gameObject.SetActive(false);
+            GameManager.Instance.GameEnded = true;
+            EnemyController.Instance.CancelDestination();
         }
 
         private void HitEnemy()
         {
-            GameUiManager.Instance.enemyGetScore.Invoke(10);
             if (Debug.isDebugBuild) Debug.LogWarning("hit enemy");
+            GameUiManager.Instance.enemyGetScore.Invoke(10);
+            GameUiManager.Instance.ShowFinishLevel();
             gameObject.SetActive(false);
+            GameManager.Instance.GameEnded = true;
+            PlayerController.Instance.CancelDestination();
         }
     }
 }

@@ -16,6 +16,7 @@ namespace Manager
         [HideInInspector] public Transform targetPoint;
         private MazeController _mazeController;
         public bool GameStarted { get; set; }
+        public bool GameEnded { get; set; }
 
         private void Awake()
         {
@@ -59,6 +60,7 @@ namespace Manager
         public void NextGame()
         {
 //        GameStarted = true;
+            GameUiManager.Instance.ShowWinLose(false);
         }
     }
 }

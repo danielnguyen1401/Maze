@@ -14,6 +14,7 @@ namespace Camera
     public class CameraController : SingletonMono<CameraController>
     {
         public Modes cameraModes;
+        public UnityEngine.Camera mainCamera;
         private bool _isChanged;
         public GameObject player; //Public variable to store a reference to the player game object
         private Vector3 _offset;
@@ -50,6 +51,7 @@ namespace Camera
         {
             if (player != null)
             {
+                Debug.LogWarning("look at player");
                 _offset = transform.position - player.transform.position;
                 transform.position = player.transform.position + _offset;
             }

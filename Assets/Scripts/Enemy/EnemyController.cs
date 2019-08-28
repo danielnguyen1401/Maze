@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 namespace Enemy
 {
-    public class EnemyController : MonoBehaviour
+    public class EnemyController : SingletonMono<EnemyController>
     {
         [SerializeField] private NavMeshAgent agent;
         private bool _setDestination;
@@ -25,12 +25,18 @@ namespace Enemy
 
         private void Update()
         {
-            if (!GameManager.Instance.GameStarted) return;
+            if (!GameManager.Instance.GameStarted || GameManager.Instance.GameEnded)
+                return;
             if (!_setDestination)
             {
                 agent.destination = GameManager.Instance.targetPoint.position;
                 _setDestination = true;
             }
+        }
+
+        public void CancelDestination()
+        {
+            agent.isStopped = true;
         }
     }
 }
