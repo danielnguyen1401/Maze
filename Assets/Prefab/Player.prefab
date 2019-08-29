@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3057454610151515665}
   - component: {fileID: 5276718116977495502}
   - component: {fileID: 9080150353297529186}
+  - component: {fileID: 4759846196550467252}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -99,6 +100,19 @@ MonoBehaviour:
   cam: {fileID: 3057454610151515665}
   player: {fileID: 8658490645500278418}
   followSpeed: 1.5
+--- !u!114 &4759846196550467252
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1217526220643420569}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: d6a0144637d19d74aa0d0fe0acfcb758, type: 2}
 --- !u!1 &8658490645500278418
 GameObject:
   m_ObjectHideFlags: 0

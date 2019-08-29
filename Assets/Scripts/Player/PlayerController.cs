@@ -18,6 +18,7 @@ namespace Player
 
         public Camera Cam
         {
+            get { return _cam; }
             set { _cam = value; }
         }
 

@@ -106,7 +106,7 @@ namespace Manager
         {
             yield return _wait;
             nextButton.gameObject.SetActive(true);
-            ShowInGame(false);
+//            ShowInGame(false);
             ShowWinLose(true);
 
             if (playerIsWinner)

@@ -54,13 +54,15 @@ namespace Manager
         {
             if (cameraModes == Modes.TopDown)
             {
-                PlayerController.Instance.Cam = topDownCam;
+                if (PlayerController.Instance.Cam == null)
+                    PlayerController.Instance.Cam = topDownCam;
                 topDownCam.gameObject.SetActive(true);
                 _thirdPersonCam.gameObject.SetActive(false);
             }
             else
             {
-                PlayerController.Instance.Cam = _thirdPersonCam;
+                if (PlayerController.Instance.Cam == null)
+                    PlayerController.Instance.Cam = _thirdPersonCam;
                 topDownCam.gameObject.SetActive(false);
                 _thirdPersonCam.gameObject.SetActive(true);
             }

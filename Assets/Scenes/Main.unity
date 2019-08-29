@@ -17,7 +17,7 @@ RenderSettings:
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
-  m_FogDensity: 0.01
+  m_FogDensity: 0.02
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
@@ -26,8 +26,8 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
-  m_HaloStrength: 0.5
+  m_SkyboxMaterial: {fileID: 2100000, guid: ad56177778cce3e4385c739b661d1935, type: 2}
+  m_HaloStrength: 0.184
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -319,8 +319,8 @@ CanvasGroup:
   m_GameObject: {fileID: 354532109}
   m_Enabled: 1
   m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!222 &354532112
 CanvasRenderer:
@@ -1813,7 +1813,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74dc13da2fe2594aac602598bf02123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraModes: 0
+  cameraModes: 1
   topDownCam: {fileID: 1793140961}
 --- !u!4 &1112523104
 Transform:
@@ -2554,6 +2554,7 @@ GameObject:
   - component: {fileID: 1793140961}
   - component: {fileID: 1793140960}
   - component: {fileID: 1793140963}
+  - component: {fileID: 1793140964}
   m_Layer: 0
   m_Name: Camera - Top Down
   m_TagString: MainCamera
@@ -2639,9 +2640,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 1793140961}
-  player: {fileID: 0}
   offset: {x: 0, y: 20, z: 2}
   followSpeed: 1.5
+--- !u!114 &1793140964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1793140959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: d6a0144637d19d74aa0d0fe0acfcb758, type: 2}
 --- !u!1 &1860677630
 GameObject:
   m_ObjectHideFlags: 0
