@@ -2688,6 +2688,8 @@ MonoBehaviour:
   mazeController: {fileID: 7783702918023930256, guid: 854d4b932305773409b23e2d79730603,
     type: 3}
   tileSize: 2
+  winLoseFx: {fileID: 3082597456991430061, guid: b837ca79b9f2aea4a98e032b8243bfa1,
+    type: 3}
   navMeshSurface: {fileID: 1472489059}
   levelConfig: {fileID: 11400000, guid: bf6e4aacc284b8f4dac2c005156f8dcf, type: 2}
   targetPoint: {fileID: 0}

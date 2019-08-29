@@ -239,6 +239,7 @@
             <e p="TriggerEndPoint.cs" t="Include" />
           </e>
           <e p="Utils" t="Include">
+            <e p="Destroyer.cs" t="Include" />
             <e p="EnumExtensions.cs" t="Include" />
           </e>
         </e>

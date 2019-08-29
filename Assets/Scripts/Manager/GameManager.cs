@@ -12,7 +12,7 @@ namespace Manager
     {
         public MazeController mazeController;
         public int tileSize;
-
+        public GameObject winLoseFx;
         private IntVec _mazeSize;
         private IntVec _playerStartPoint;
         private IntVec _enemyStartPoint;
@@ -104,6 +104,12 @@ namespace Manager
             if (_levelId >= levelConfig.Levels.Length)
                 _levelId = 0;
             GameUiManager.Instance.nextLevel.Invoke();
+        }
+
+        public void PlayWinLoseEffect(Vector3 position)
+        {
+            var fx = Instantiate(winLoseFx);
+            fx.transform.position = position;
         }
     }
 }

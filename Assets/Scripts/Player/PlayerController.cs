@@ -13,7 +13,7 @@ namespace Player
         private Camera _cam;
         private const float Multiple = 1.2f;
         private ParticleSystem _cursorFx;
-        public ThirdPersonCamera thirdPersonCamera;
+//        public ThirdPersonCamera thirdPersonCamera;
         [SerializeField] private LayerMask ground;
 
         public Camera Cam
@@ -28,6 +28,11 @@ namespace Player
             SetupNavAgent();
         }
 
+//        public Vector3 PlayerPosition()
+//        {
+//            return transform.position;
+//        }
+        
         private void SetupNavAgent()
         {
             agent.speed = 0;
