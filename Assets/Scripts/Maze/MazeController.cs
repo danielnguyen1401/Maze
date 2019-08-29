@@ -81,7 +81,8 @@ namespace Maze
         private void CreateCharacter()
         {
             _playerGo = Instantiate(playerPref, transform, true);
-            CameraController.Instance.player = _playerGo;
+//            CameraController.Instance.player = _playerGo;
+            CameraController.Instance.SetupOffset(_playerGo);
             _enemyGo = Instantiate(enemyPref, transform, true);
             _endObj = Instantiate(endPref, transform, true);
             GameManager.Instance.targetPoint = _endObj.transform;

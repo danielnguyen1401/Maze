@@ -23,7 +23,7 @@ namespace TargetController
             GameUiManager.Instance.playerGetScore.Invoke(10);
             gameObject.SetActive(false);
             GameManager.Instance.GameEnded = true;
-            EnemyController.Instance.CancelDestination();
+            CancelAgent();
             GameUiManager.Instance.ShowFinishLevel(true);
         }
 
@@ -32,8 +32,14 @@ namespace TargetController
             GameUiManager.Instance.enemyGetScore.Invoke(10);
             gameObject.SetActive(false);
             GameManager.Instance.GameEnded = true;
-            PlayerController.Instance.CancelDestination();
+            CancelAgent();
             GameUiManager.Instance.ShowFinishLevel(false);
+        }
+
+        private void CancelAgent()
+        {
+            PlayerController.Instance.CancelDestination();
+            EnemyController.Instance.CancelDestination();
         }
     }
 }
