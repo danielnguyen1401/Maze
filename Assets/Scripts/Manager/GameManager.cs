@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using Enemy;
+﻿using Enemy;
 using Level;
 using Maze;
 using Player;
@@ -11,25 +10,21 @@ namespace Manager
     public class GameManager : SingletonMono<GameManager>
     {
         public MazeController mazeController;
-        public int tileSize;
+        [HideInInspector] public int tileSize;
         public GameObject winLoseFx;
+        public NavMeshSurface navMeshSurface;
+        public LevelConfig levelConfig;
+        
         private IntVec _mazeSize;
         private IntVec _playerStartPoint;
         private IntVec _enemyStartPoint;
         private IntVec _endPoint;
-
-        public NavMeshSurface navMeshSurface;
-        public LevelConfig levelConfig;
         [HideInInspector] public Transform targetPoint;
         private MazeController _mazeController;
         public bool GameStarted { get; set; }
         public bool GameEnded { get; set; }
         private int _levelId;
         public int LevelId => _levelId;
-
-        private void Awake()
-        {
-        }
 
         private void LoadLevels()
         {
@@ -52,16 +47,8 @@ namespace Manager
         private void Begin()
         {
             LoadLevels();
-//            Debug.LogWarning("LEVEL ID: " + _levelId);
             _mazeController = Instantiate(mazeController);
             _mazeController.CreateMaze();
-        }
-
-        private void Restart()
-        {
-            _mazeController.StopCreateMazeCo();
-            Destroy(_mazeController.gameObject);
-            Begin();
         }
 
         public void BakeNavMesh()
@@ -72,16 +59,11 @@ namespace Manager
         public void StartGame()
         {
             GameStarted = true;
-//            EnableAgentCo();
-//            BakeNavMesh();
-//            StartCoroutine(EnableAgentCo());
-            PlayerController.Instance.EnableAgent();
-            EnemyController.Instance.EnableAgent();
+            EnableAgentCo();
         }
 
-        private IEnumerator EnableAgentCo()
+        private void EnableAgentCo()
         {
-            yield return new WaitForEndOfFrame();
             PlayerController.Instance.EnableAgent();
             EnemyController.Instance.EnableAgent();
         }

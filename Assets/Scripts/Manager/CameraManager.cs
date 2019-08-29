@@ -1,4 +1,5 @@
-﻿using Player;
+﻿using Cam;
+using Player;
 using UnityEngine;
 using Utils;
 
@@ -54,16 +55,18 @@ namespace Manager
         {
             if (cameraModes == Modes.TopDown)
             {
-                if (PlayerController.Instance.Cam == null)
-                    PlayerController.Instance.Cam = topDownCam;
+                PlayerController.Instance.Cam = topDownCam;
+                if (LookAtCamera.Instance != null)
+                    LookAtCamera.Instance.Target = topDownCam.transform;
                 topDownCam.gameObject.SetActive(true);
                 _thirdPersonCam.gameObject.SetActive(false);
             }
             else
             {
-                if (PlayerController.Instance.Cam == null)
-                    PlayerController.Instance.Cam = _thirdPersonCam;
-                topDownCam.gameObject.SetActive(false);
+                PlayerController.Instance.Cam = _thirdPersonCam;
+                if (LookAtCamera.Instance != null)
+                    LookAtCamera.Instance.Target = _thirdPersonCam.transform;
+//                topDownCam.gameObject.SetActive(false);
                 _thirdPersonCam.gameObject.SetActive(true);
             }
         }

@@ -5,7 +5,6 @@ namespace Maze
     public class Edge : MonoBehaviour
     {
         public MazeCell cell, otherCell;
-
         public Direction direction;
 
         public virtual void Initialize(MazeCell cell, MazeCell otherCell, Direction direction)
