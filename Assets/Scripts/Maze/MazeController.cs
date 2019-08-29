@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Cam;
 using Manager;
+using Player;
 using UnityEngine;
 
 // <summary>
@@ -26,6 +27,7 @@ namespace Maze
 
         private MazeCell[,] _cells;
         private readonly WaitForEndOfFrame _waitAFrame = new WaitForEndOfFrame();
+        private readonly WaitForSeconds _waitSecond = new WaitForSeconds(2f);
         private IntVec _size;
         private IntVec _coordinates;
         private readonly Vector3 _offset = new Vector3(0, .5f, 0);
@@ -52,11 +54,13 @@ namespace Maze
                 yield return _waitAFrame;
                 NextGenerate(activeCells);
             }
+
             yield return _waitAFrame;
             BakeNavMesh();
             CreateCharacter();
             yield return _waitAFrame;
-            CameraManager.Instance.LoadCache();
+            CameraManager.Instance.ActiveOnlyOneCame();
+            yield return _waitSecond;
             GameUiManager.Instance.ShowInGame(true);
             GameUiManager.Instance.ShowStartBtn(true);
         }

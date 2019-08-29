@@ -76,7 +76,6 @@ namespace Manager
             GameStarted = false;
             GameEnded = false;
             MakeLevelCircle();
-            CameraManager.Instance.Cache();
             Begin();
         }
 

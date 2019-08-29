@@ -17,7 +17,6 @@ namespace Manager
         public Modes cameraModes;
         public Camera topDownCam;
         private Camera _thirdPersonCam;
-        private Modes _cacheMode;
 
         public Camera ThirdPersonCam
         {
@@ -26,7 +25,7 @@ namespace Manager
 
         private void Start()
         {
-            _cacheMode = cameraModes;
+            cameraModes = Modes.TopDown;
         }
 
         private void Update()
@@ -51,37 +50,31 @@ namespace Manager
             ActiveOnlyOneCame();
         }
 
-        private void ActiveOnlyOneCame()
+        public void SetCameraToTopDown()
         {
+            cameraModes = Modes.TopDown;
+            _thirdPersonCam.enabled = false;
+            topDownCam.enabled = true;
+        }
+
+        public void ActiveOnlyOneCame()
+        {
+            _thirdPersonCam.enabled = false;
+            topDownCam.enabled = false;
             if (cameraModes == Modes.TopDown)
             {
                 PlayerController.Instance.Cam = topDownCam;
                 if (LookAtCamera.Instance != null)
                     LookAtCamera.Instance.Target = topDownCam.transform;
-                topDownCam.gameObject.SetActive(true);
-                _thirdPersonCam.gameObject.SetActive(false);
+                topDownCam.enabled = true;
             }
             else
             {
                 PlayerController.Instance.Cam = _thirdPersonCam;
                 if (LookAtCamera.Instance != null)
                     LookAtCamera.Instance.Target = _thirdPersonCam.transform;
-//                topDownCam.gameObject.SetActive(false);
-                _thirdPersonCam.gameObject.SetActive(true);
+                _thirdPersonCam.enabled = true;
             }
-        }
-
-        public void Cache()
-        {
-            _cacheMode = cameraModes;
-            cameraModes = Modes.TopDown;
-            ActiveOnlyOneCame();
-        }
-
-        public void LoadCache()
-        {
-            cameraModes = _cacheMode;
-            ActiveOnlyOneCame();
         }
     }
 }

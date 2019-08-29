@@ -41,7 +41,7 @@ Camera:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217526220643420569}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
@@ -244,7 +244,6 @@ MonoBehaviour:
   agent: {fileID: 910491292730155643}
   cursorParticle: {fileID: 686599065375819849, guid: 8f782aa851f68d64196240c17f714708,
     type: 3}
-  thirdPersonCamera: {fileID: 9080150353297529186}
   ground:
     serializedVersion: 2
     m_Bits: 256

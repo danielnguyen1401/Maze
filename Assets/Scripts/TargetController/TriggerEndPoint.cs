@@ -26,7 +26,7 @@ namespace TargetController
             GameManager.Instance.PlayWinLoseEffect(obj.transform.position);
             CancelAgent();
             GameUiManager.Instance.ShowFinishLevel(true);
-            CameraManager.Instance.Cache();
+            CameraManager.Instance.SetCameraToTopDown();
         }
 
         private void HitEnemy(GameObject obj)
@@ -37,7 +37,7 @@ namespace TargetController
             GameManager.Instance.PlayWinLoseEffect(obj.transform.position);
             CancelAgent();
             GameUiManager.Instance.ShowFinishLevel(false);
-            CameraManager.Instance.Cache();
+            CameraManager.Instance.SetCameraToTopDown();
         }
 
         private void CancelAgent()

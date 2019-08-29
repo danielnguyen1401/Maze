@@ -59,7 +59,6 @@ namespace Manager
         private void OnEnemyGetScore(int value)
         {
             _eScore += value;
-//            enemyScore.text = _eScore.ToString();
             enemyScore.DOText(_eScore.ToString(), 1f, false, ScrambleMode.Numerals);
         }
 
@@ -67,10 +66,6 @@ namespace Manager
         {
             _pScore += value;
             playerScore.DOText(_pScore.ToString(), 1f, false, ScrambleMode.Numerals);
-        }
-
-        private void Update()
-        {
         }
 
         public void ShowStartBtn(bool show)
@@ -106,9 +101,7 @@ namespace Manager
         {
             yield return _wait;
             nextButton.gameObject.SetActive(true);
-//            ShowInGame(false);
             ShowWinLose(true);
-
             if (playerIsWinner)
                 PlayerIsWinner();
             else
