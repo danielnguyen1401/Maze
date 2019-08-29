@@ -32,8 +32,7 @@ namespace Enemy
 
         private void Update()
         {
-            if (!GameManager.Instance.GameStarted || GameManager.Instance.GameEnded)
-                return;
+            if (!GameManager.Instance.GameStarted || GameManager.Instance.GameEnded) return;
             if (!_setDestination)
             {
                 agent.destination = GameManager.Instance.targetPoint.position;

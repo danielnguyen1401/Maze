@@ -72,11 +72,16 @@ namespace Manager
         public void StartGame()
         {
             GameStarted = true;
-            EnableAgentCo();
+//            EnableAgentCo();
+//            BakeNavMesh();
+//            StartCoroutine(EnableAgentCo());
+            PlayerController.Instance.EnableAgent();
+            EnemyController.Instance.EnableAgent();
         }
 
-        private void EnableAgentCo()
+        private IEnumerator EnableAgentCo()
         {
+            yield return new WaitForEndOfFrame();
             PlayerController.Instance.EnableAgent();
             EnemyController.Instance.EnableAgent();
         }
@@ -89,6 +94,7 @@ namespace Manager
             GameStarted = false;
             GameEnded = false;
             MakeLevelCircle();
+            CameraManager.Instance.Cache();
             Begin();
         }
 

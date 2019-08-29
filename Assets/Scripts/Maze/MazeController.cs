@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using Camera;
+using Cam;
 using Manager;
 using UnityEngine;
 
@@ -67,8 +67,10 @@ namespace Maze
 
             yield return _waitAFrame;
             BakeNavMesh();
-            yield return _waitAFrame;
+//            yield return _waitAFrame;
             CreateCharacter();
+            yield return _waitAFrame;
+            CameraManager.Instance.LoadCache();
             GameUiManager.Instance.ShowInGame(true);
             GameUiManager.Instance.ShowStartBtn(true);
         }
@@ -81,8 +83,7 @@ namespace Maze
         private void CreateCharacter()
         {
             _playerGo = Instantiate(playerPref, transform, true);
-//            CameraController.Instance.player = _playerGo;
-            CameraController.Instance.SetupOffset(_playerGo);
+            TopDownCamera.Instance.SetPlayerForCam(_playerGo);
             _enemyGo = Instantiate(enemyPref, transform, true);
             _endObj = Instantiate(endPref, transform, true);
             GameManager.Instance.targetPoint = _endObj.transform;

@@ -25,6 +25,7 @@ namespace TargetController
             GameManager.Instance.GameEnded = true;
             CancelAgent();
             GameUiManager.Instance.ShowFinishLevel(true);
+            CameraManager.Instance.Cache();
         }
 
         private void HitEnemy()
@@ -34,6 +35,7 @@ namespace TargetController
             GameManager.Instance.GameEnded = true;
             CancelAgent();
             GameUiManager.Instance.ShowFinishLevel(false);
+            CameraManager.Instance.Cache();
         }
 
         private void CancelAgent()

@@ -135,6 +135,7 @@ namespace Manager
         {
             enemyGetScore -= OnEnemyGetScore;
             playerGetScore -= OnPlayerGetScore;
+            nextLevel -= OnLevelChange;
         }
     }
 }

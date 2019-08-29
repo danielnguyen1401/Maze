@@ -1,4 +1,4 @@
-﻿using Camera;
+﻿using Cam;
 using Config;
 using Manager;
 using UnityEngine;
@@ -10,14 +10,20 @@ namespace Player
     {
         [SerializeField] NavMeshAgent agent;
         [SerializeField] private ParticleSystem cursorParticle;
-        private UnityEngine.Camera _camera;
+        private Camera _cam;
         private const float Multiple = 1.2f;
         private ParticleSystem _cursorFx;
+        public ThirdPersonCamera thirdPersonCamera;
+        [SerializeField] private LayerMask ground;
+
+        public Camera Cam
+        {
+            set { _cam = value; }
+        }
 
         private void Start()
         {
             _cursorFx = Instantiate(cursorParticle);
-            _camera = CameraController.Instance.mainCamera;
             SetupNavAgent();
         }
 
@@ -38,12 +44,11 @@ namespace Player
 
         private void Update()
         {
-            if (!GameManager.Instance.GameStarted || GameManager.Instance.GameEnded)
-                return;
+            if (!GameManager.Instance.GameStarted || GameManager.Instance.GameEnded) return;
             if (Input.GetMouseButtonDown(0))
             {
                 RaycastHit hit;
-                if (Physics.Raycast(_camera.ScreenPointToRay(Input.mousePosition), out hit, 50))
+                if (Physics.Raycast(_cam.ScreenPointToRay(Input.mousePosition), out hit, 100, ground))
                 {
                     CursorEffect(hit.point);
                     agent.destination = hit.point;
