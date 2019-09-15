@@ -1,19 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using Manager;
 using UnityEngine;
 
-public class Pathfinding : MonoBehaviour
+public class Pathfinding : SingletonMono<Pathfinding>
 {
-    public Grid GridReference; //For referencing the grid class
-    public Transform StartPosition; //Starting position to pathfind from
-    public Transform TargetPosition; //Starting position to pathfind to
-    private List<Node> _finalPath; //List to hold the path sequentially 
+    public Grid GridReference;
+    public Transform StartPosition;
+    public Transform TargetPosition;
+    private List<Node> _finalPath;
+    private Coroutine moveCo;
 
     public void Move()
     {
-        FindPath();
-        StartCoroutine(TranslateTargetCo());
+        moveCo = StartCoroutine(TranslateTargetCo());
+    }
+
+    public void StopMoveEnemy()
+    {
+        if (moveCo != null)
+            StopCoroutine(moveCo);
     }
 
     private IEnumerator TranslateTargetCo()
@@ -26,16 +32,19 @@ public class Pathfinding : MonoBehaviour
                 {
                     if (_finalPath.Contains(n))
                     {
-                        yield return new WaitForSeconds(1f);
-                        StartPosition.position = n.VPosition;
+//                        Debug.LogWarning("Position " + n.VPosition);
+                        yield return new WaitForSeconds(.4f);
+                            StartPosition.position = n.VPosition;
                     }
                 }
             }
         }
     }
 
-    private void FindPath()
+    public void FindPath()
     {
+        if (GameManager.Instance != null)
+            TargetPosition = GameManager.Instance.targetPoint;
         Node startNode = GridReference.NodeFromWorldPoint(StartPosition.position);
         Node targetNode = GridReference.NodeFromWorldPoint(TargetPosition.position);
 
@@ -69,16 +78,14 @@ public class Pathfinding : MonoBehaviour
             for (var i = 0; i < list.Count; i++)
             {
                 Node neighborNode = list[i];
-                if (!neighborNode.IsWall || closedList.Contains(neighborNode)
-                ) //If the neighbor is a wall or has already been checked
+                if (!neighborNode.IsWall || closedList.Contains(neighborNode))
                 {
-                    continue; //Skip it
+                    continue;
                 }
 
                 int moveCost = currentNode.CostToNext + GetManhattenDistance(currentNode, neighborNode);
 
-                if (moveCost < neighborNode.CostToNext || !openList.Contains(neighborNode)
-                ) //If the f cost is greater than the g cost or it is not in the open list
+                if (moveCost < neighborNode.CostToNext || !openList.Contains(neighborNode))
                 {
                     neighborNode.CostToNext = moveCost; //Set the g cost to the f cost
                     neighborNode.CostToGoal = GetManhattenDistance(neighborNode, targetNode); //Set the h cost
@@ -97,7 +104,7 @@ public class Pathfinding : MonoBehaviour
     private void GetFinalPath(Node startingNode, Node endNode)
     {
         _finalPath = new List<Node>();
-        Node currentNode = endNode; //Node to store the current node being checked
+        Node currentNode = endNode;
 
         while (currentNode != startingNode)
         {
@@ -105,23 +112,8 @@ public class Pathfinding : MonoBehaviour
             currentNode = currentNode.ParentNode;
         }
 
-        _finalPath.Reverse(); //Reverse the path to get the correct order
-        GridReference.FinalPath = _finalPath; //Set the final path
-    }
-
-    static Vector3[] SortListV3OnX(List<Vector3> data)
-    {
-        if (data.Count < 2) return data.ToArray(); //Or throw error, or return null
-
-        var min = data.OrderBy(x => x.x).First();
-        var max = data.OrderByDescending(x => x.x).First();
-
-        data.Remove(min);
-        data.Remove(max);
-
-        data.Insert(0, min);
-        data.Add(max);
-        return data.ToArray();
+        _finalPath.Reverse();
+        GridReference.FinalPath = _finalPath;
     }
 
     private int GetManhattenDistance(Node aNodeA, Node aNodeB)

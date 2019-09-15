@@ -59,7 +59,10 @@ namespace Maze
             BakeNavMesh();
             CreateCharacter();
             yield return _waitAFrame;
-            CameraManager.Instance.ActiveOnlyOneCame();
+            Grid.Instance.CreateGrid();
+            yield return _waitAFrame;
+            Pathfinding.Instance.FindPath();
+            CameraManager.Instance.ActiveOnlyOneCam();
             yield return _waitSecond;
             GameUiManager.Instance.ShowInGame(true);
             GameUiManager.Instance.ShowStartBtn(true);

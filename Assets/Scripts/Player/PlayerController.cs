@@ -64,7 +64,8 @@ namespace Player
 
         public void CancelDestination()
         {
-            agent.isStopped = true;
+            if (agent.enabled)
+                agent.isStopped = true;
         }
     }
 }

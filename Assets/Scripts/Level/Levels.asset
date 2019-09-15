@@ -26,6 +26,7 @@ MonoBehaviour:
     endPoint:
       x: 3
       z: 5
+    pathSize: {x: 15, y: 13}
   - name: level2
     mazeSize:
       x: 9
@@ -39,6 +40,7 @@ MonoBehaviour:
     endPoint:
       x: 4
       z: 7
+    pathSize: {x: 20, y: 18}
   - name: level3
     mazeSize:
       x: 12
@@ -52,3 +54,4 @@ MonoBehaviour:
     endPoint:
       x: 5
       z: 10
+    pathSize: {x: 26, y: 23}

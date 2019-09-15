@@ -14,8 +14,9 @@ namespace Manager
         public GameObject winLoseFx;
         public NavMeshSurface navMeshSurface;
         public LevelConfig levelConfig;
-        
+
         private IntVec _mazeSize;
+        [HideInInspector] public Vector2 PathSize;
         private IntVec _playerStartPoint;
         private IntVec _enemyStartPoint;
         private IntVec _endPoint;
@@ -23,12 +24,13 @@ namespace Manager
         private MazeController _mazeController;
         public bool GameStarted { get; set; }
         public bool GameEnded { get; set; }
-        private int _levelId;
+        [SerializeField] private int _levelId;
         public int LevelId => _levelId;
 
         private void LoadLevels()
         {
             _mazeSize = levelConfig.Levels[_levelId].mazeSize;
+            PathSize = levelConfig.Levels[_levelId].pathSize;
             _playerStartPoint = levelConfig.Levels[_levelId].playerStartPoint;
             _enemyStartPoint = levelConfig.Levels[_levelId].enemyStartPoint;
             _endPoint = levelConfig.Levels[_levelId].endPoint;
@@ -59,13 +61,15 @@ namespace Manager
         public void StartGame()
         {
             GameStarted = true;
+            if (Pathfinding.Instance != null)
+                Pathfinding.Instance.Move();
             EnableAgentCo();
         }
 
         private void EnableAgentCo()
         {
             PlayerController.Instance.EnableAgent();
-            EnemyController.Instance.EnableAgent();
+//            EnemyController.Instance.EnableAgent();
         }
 
         public void NextGame()

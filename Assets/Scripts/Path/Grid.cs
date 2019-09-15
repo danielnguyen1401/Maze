@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
+using Manager;
 using UnityEngine;
 
-public class Grid : MonoBehaviour
+public class Grid : SingletonMono<Grid>
 {
     public LayerMask WallMask;
-    public Vector2 GridWorldSize; //A vector2 to store the width and height of the graph in world units.
-    public float NodeRadius; //This stores how big each square on the graph will be
-    public float DistanceBetweenNodes; //The distance that the squares will spawn from eachother.
+    private Vector2 _gridWorldSize;
+    public float NodeRadius;
+    private float _distanceBetweenNodes = 0;
 
     public Node[,] NodeArray; //The array of nodes that the A Star algorithm uses.
     public List<Node> FinalPath; //The completed path that the red line will be drawn along
@@ -15,19 +16,20 @@ public class Grid : MonoBehaviour
     int _gridSizeX, _gridSizeY;
 
 
-    private void Start()
+    public void CreateGrid()
     {
-        _nodeDiameter = NodeRadius * 2; //Double the radius to get diameter
-        _gridSizeX = Mathf.RoundToInt(GridWorldSize.x / _nodeDiameter);
-        _gridSizeY = Mathf.RoundToInt(GridWorldSize.y / _nodeDiameter);
-        CreateGrid();
+        _gridWorldSize = GameManager.Instance.PathSize;
+        _nodeDiameter = NodeRadius * 2;
+        _gridSizeX = Mathf.RoundToInt(_gridWorldSize.x / _nodeDiameter);
+        _gridSizeY = Mathf.RoundToInt(_gridWorldSize.y / _nodeDiameter);
+        DrawGrid();
     }
 
-    void CreateGrid()
+    private void DrawGrid()
     {
         NodeArray = new Node[_gridSizeX, _gridSizeY];
-        Vector3 bottomLeft = transform.position - Vector3.right * GridWorldSize.x / 2 -
-                             Vector3.forward * GridWorldSize.y / 2;
+        Vector3 bottomLeft = transform.position - Vector3.right * _gridWorldSize.x / 2 -
+                             Vector3.forward * _gridWorldSize.y / 2;
         for (var x = 0; x < _gridSizeX; x++)
         {
             for (var y = 0; y < _gridSizeY; y++)
@@ -43,7 +45,7 @@ public class Grid : MonoBehaviour
 
     public List<Node> GetNeighboringNodes(Node neighbor)
     {
-        List<Node> neighborList = new List<Node>(); //Make a new list of all available neighbors.
+        List<Node> neighborList = new List<Node>();
 
         var checkX = neighbor.GridX + 1;
         var checkY = neighbor.GridY;
@@ -94,8 +96,8 @@ public class Grid : MonoBehaviour
     //Gets the closest node to the given world position.
     public Node NodeFromWorldPoint(Vector3 worldPos)
     {
-        float ixPos = ((worldPos.x + GridWorldSize.x / 2) / GridWorldSize.x);
-        float iyPos = ((worldPos.z + GridWorldSize.y / 2) / GridWorldSize.y);
+        float ixPos = ((worldPos.x + _gridWorldSize.x / 2) / _gridWorldSize.x);
+        float iyPos = ((worldPos.z + _gridWorldSize.y / 2) / _gridWorldSize.y);
 
         ixPos = Mathf.Clamp01(ixPos);
         iyPos = Mathf.Clamp01(iyPos);
@@ -108,7 +110,7 @@ public class Grid : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position, new Vector3(GridWorldSize.x, 1, GridWorldSize.y));
+        Gizmos.DrawWireCube(transform.position, new Vector3(_gridWorldSize.x, 1, _gridWorldSize.y));
         if (NodeArray != null)
         {
             foreach (Node n in NodeArray)
@@ -122,9 +124,9 @@ public class Grid : MonoBehaviour
                         Gizmos.color = new Color(0.33f, 0.58f, 1f);
                     }
                 }
-                Gizmos.DrawCube(n.VPosition, Vector3.one * (_nodeDiameter - DistanceBetweenNodes));
+
+                Gizmos.DrawCube(n.VPosition, Vector3.one * (_nodeDiameter - _distanceBetweenNodes));
             }
         }
     }
-
 }

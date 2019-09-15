@@ -17,5 +17,6 @@ namespace Level
         public IntVec playerStartPoint;
         public IntVec enemyStartPoint;
         public IntVec endPoint;
+        public Vector2 pathSize;
     }
 }

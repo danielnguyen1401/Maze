@@ -47,7 +47,7 @@ namespace Manager
         private void ChangeModeCamera()
         {
             cameraModes = cameraModes.Next<Modes>();
-            ActiveOnlyOneCame();
+            ActiveOnlyOneCam();
         }
 
         public void SetCameraToTopDown()
@@ -57,7 +57,7 @@ namespace Manager
             topDownCam.enabled = true;
         }
 
-        public void ActiveOnlyOneCame()
+        public void ActiveOnlyOneCam()
         {
             _thirdPersonCam.enabled = false;
             topDownCam.enabled = false;
