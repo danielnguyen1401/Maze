@@ -1,5 +1,4 @@
-﻿using Enemy;
-using Level;
+﻿using Level;
 using Maze;
 using Player;
 using UnityEngine;

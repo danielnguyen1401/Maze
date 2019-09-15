@@ -7,10 +7,10 @@ public class Grid : SingletonMono<Grid>
     public LayerMask WallMask;
     private Vector2 _gridWorldSize;
     public float NodeRadius;
-    private float _distanceBetweenNodes = 0;
+    private float _distanceBetweenNodes = 0.1f;
 
-    public Node[,] NodeArray; //The array of nodes that the A Star algorithm uses.
-    public List<Node> FinalPath; //The completed path that the red line will be drawn along
+    public Node[,] NodeArray;
+    public List<Node> FinalPath;
 
     float _nodeDiameter;
     int _gridSizeX, _gridSizeY;
@@ -28,15 +28,15 @@ public class Grid : SingletonMono<Grid>
     private void DrawGrid()
     {
         NodeArray = new Node[_gridSizeX, _gridSizeY];
-        Vector3 bottomLeft = transform.position - Vector3.right * _gridWorldSize.x / 2 -
+        var bottomLeft = transform.position - Vector3.right * _gridWorldSize.x / 2 -
                              Vector3.forward * _gridWorldSize.y / 2;
         for (var x = 0; x < _gridSizeX; x++)
         {
             for (var y = 0; y < _gridSizeY; y++)
             {
-                Vector3 worldPoint = bottomLeft + Vector3.right * (x * _nodeDiameter + NodeRadius) +
+                var worldPoint = bottomLeft + Vector3.right * (x * _nodeDiameter + NodeRadius) +
                                      Vector3.forward * (y * _nodeDiameter + NodeRadius);
-                bool wall = !Physics.CheckSphere(worldPoint, NodeRadius, WallMask);
+                var wall = !Physics.CheckSphere(worldPoint, NodeRadius, WallMask);
 
                 NodeArray[x, y] = new Node(wall, worldPoint, x, y);
             }
@@ -45,65 +45,63 @@ public class Grid : SingletonMono<Grid>
 
     public List<Node> GetNeighboringNodes(Node neighbor)
     {
-        List<Node> neighborList = new List<Node>();
+        var neighborList = new List<Node>();
 
         var checkX = neighbor.GridX + 1;
         var checkY = neighbor.GridY;
-        if (checkX >= 0 && checkX < _gridSizeX) //If the XPosition is in range of the array
+        if (checkX >= 0 && checkX < _gridSizeX)
         {
-            if (checkY >= 0 && checkY < _gridSizeY) //If the YPosition is in range of the array
+            if (checkY >= 0 && checkY < _gridSizeY)
             {
-                neighborList.Add(NodeArray[checkX, checkY]); //Add the grid to the available neighbors list
+                neighborList.Add(NodeArray[checkX, checkY]);
             }
         }
 
-        //Check the Left side of the current node.
+        //Check the Left 
         checkX = neighbor.GridX - 1;
         checkY = neighbor.GridY;
-        if (checkX >= 0 && checkX < _gridSizeX) //If the XPosition is in range of the array
+        if (checkX >= 0 && checkX < _gridSizeX)
         {
-            if (checkY >= 0 && checkY < _gridSizeY) //If the YPosition is in range of the array
+            if (checkY >= 0 && checkY < _gridSizeY)
             {
-                neighborList.Add(NodeArray[checkX, checkY]); //Add the grid to the available neighbors list
+                neighborList.Add(NodeArray[checkX, checkY]);
             }
         }
 
-        //Check the Top side of the current node.
         checkX = neighbor.GridX;
         checkY = neighbor.GridY + 1;
-        if (checkX >= 0 && checkX < _gridSizeX) //If the XPosition is in range of the array
+        if (checkX >= 0 && checkX < _gridSizeX)
         {
-            if (checkY >= 0 && checkY < _gridSizeY) //If the YPosition is in range of the array
+            if (checkY >= 0 && checkY < _gridSizeY)
             {
-                neighborList.Add(NodeArray[checkX, checkY]); //Add the grid to the available neighbors list
+                neighborList.Add(NodeArray[checkX, checkY]);
             }
         }
 
-        //Check the Bottom side of the current node.
+        //Check the Bottom
         checkX = neighbor.GridX;
         checkY = neighbor.GridY - 1;
-        if (checkX >= 0 && checkX < _gridSizeX) //If the XPosition is in range of the array
+        if (checkX >= 0 && checkX < _gridSizeX)
         {
-            if (checkY >= 0 && checkY < _gridSizeY) //If the YPosition is in range of the array
+            if (checkY >= 0 && checkY < _gridSizeY)
             {
-                neighborList.Add(NodeArray[checkX, checkY]); //Add the grid to the available neighbors list
+                neighborList.Add(NodeArray[checkX, checkY]);
             }
         }
 
-        return neighborList; //Return the neighbors list.
+        return neighborList;
     }
 
-    //Gets the closest node to the given world position.
     public Node NodeFromWorldPoint(Vector3 worldPos)
     {
-        float ixPos = ((worldPos.x + _gridWorldSize.x / 2) / _gridWorldSize.x);
-        float iyPos = ((worldPos.z + _gridWorldSize.y / 2) / _gridWorldSize.y);
+        var ixPos = ((worldPos.x + _gridWorldSize.x / 2) / _gridWorldSize.x);
+        var iyPos = ((worldPos.z + _gridWorldSize.y / 2) / _gridWorldSize.y);
 
         ixPos = Mathf.Clamp01(ixPos);
         iyPos = Mathf.Clamp01(iyPos);
 
-        int ix = Mathf.RoundToInt((_gridSizeX - 1) * ixPos);
-        int iy = Mathf.RoundToInt((_gridSizeY - 1) * iyPos);
+        var ix = Mathf.RoundToInt((_gridSizeX - 1) * ixPos);
+        var iy = Mathf.RoundToInt((_gridSizeY - 1) * iyPos);
 
         return NodeArray[ix, iy];
     }

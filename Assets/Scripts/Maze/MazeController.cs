@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using Cam;
 using Manager;
-using Player;
 using UnityEngine;
 
 // <summary>

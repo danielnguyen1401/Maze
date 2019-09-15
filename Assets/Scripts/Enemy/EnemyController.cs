@@ -4,7 +4,6 @@ namespace Enemy
 {
     public class EnemyController : SingletonMono<EnemyController>
     {
-//        [SerializeField] private NavMeshAgent agent;
         private bool _setDestination;
         private Pathfinding Pathfinding;
 
@@ -12,7 +11,6 @@ namespace Enemy
         {
             Pathfinding = Pathfinding.Instance;
             Pathfinding.StartPosition = transform;
-//            SetupAgent();
         }
 
         private void SetupAgent()
